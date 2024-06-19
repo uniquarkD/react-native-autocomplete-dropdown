@@ -131,7 +131,7 @@ export const AutocompleteDropdown = memo<
       setInputValue('')
       setSelectedItem(null)
       setIsOpened(false)
-      inputRef.current?.blur()
+      inputRef?.current?.blur()
       if (typeof onClear === 'function') {
         onClear()
       }
@@ -144,7 +144,7 @@ export const AutocompleteDropdown = memo<
     }, [setContent])
 
     const blur = useCallback(() => {
-      inputRef.current?.blur()
+      inputRef?.current?.blur()
     }, [])
 
     // useEffect(() => {
@@ -176,9 +176,9 @@ export const AutocompleteDropdown = memo<
     useLayoutEffect(() => {
       if (ref) {
         if (typeof ref === 'function') {
-          ref(inputRef.current)
+          ref(inputRef?.current)
         } else {
-          ref.current = inputRef.current
+          ref.current = inputRef?.current
         }
       }
     }, [ref])
@@ -267,7 +267,7 @@ export const AutocompleteDropdown = memo<
 
     const _onSelectItem = useCallback((item: AutocompleteDropdownItem) => {
       setSelectedItem(item)
-      inputRef.current?.blur()
+      inputRef?.current?.blur()
       setIsOpened(false)
     }, [])
 
@@ -391,7 +391,7 @@ export const AutocompleteDropdown = memo<
 
     const onSubmit = useCallback(
       (e: NativeSyntheticEvent<TextInputSubmitEditingEventData>) => {
-        inputRef.current?.blur()
+        inputRef?.current?.blur()
         if (closeOnSubmit) {
           close()
         }
@@ -415,7 +415,7 @@ export const AutocompleteDropdown = memo<
     )
 
     useEffect(() => {
-      if ((!content && !inputRef.current?.isFocused()) || loading) {
+      if ((!content && !inputRef?.current?.isFocused()) || loading) {
         const db = debounce(() => {
           setIsOpened(false)
         }, 100)
@@ -428,7 +428,7 @@ export const AutocompleteDropdown = memo<
 
     useEffect(() => {
       // searchTextRef
-      if (searchText && inputRef.current?.isFocused() && !loading) {
+      if (searchText && inputRef?.current?.isFocused() && !loading) {
         setIsOpened(true)
       }
     }, [loading, searchText])
