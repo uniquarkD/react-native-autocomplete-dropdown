@@ -131,7 +131,7 @@ export const AutocompleteDropdown = memo<
       setInputValue('')
       setSelectedItem(null)
       setIsOpened(false)
-      inputRef?.current?.blur()
+      inputRef?.current?.blur?.()
       if (typeof onClear === 'function') {
         onClear()
       }
@@ -144,7 +144,7 @@ export const AutocompleteDropdown = memo<
     }, [setContent])
 
     const blur = useCallback(() => {
-      inputRef?.current?.blur()
+      inputRef?.current?.blur?.()
     }, [])
 
     // useEffect(() => {
@@ -267,7 +267,7 @@ export const AutocompleteDropdown = memo<
 
     const _onSelectItem = useCallback((item: AutocompleteDropdownItem) => {
       setSelectedItem(item)
-      inputRef?.current?.blur()
+      inputRef?.current?.blur?.()
       setIsOpened(false)
     }, [])
 
@@ -391,7 +391,7 @@ export const AutocompleteDropdown = memo<
 
     const onSubmit = useCallback(
       (e: NativeSyntheticEvent<TextInputSubmitEditingEventData>) => {
-        inputRef?.current?.blur()
+        inputRef?.current?.blur?.()
         if (closeOnSubmit) {
           close()
         }
@@ -406,7 +406,7 @@ export const AutocompleteDropdown = memo<
     const onPressOut = useCallback(
       (e: GestureResponderEvent) => {
         if (editable) {
-          inputRef?.current?.focus()
+          inputRef?.current?.focus?.()
         } else {
           toggle()
         }
