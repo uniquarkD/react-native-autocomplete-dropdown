@@ -34,9 +34,6 @@
         "lib",
         "src"
     ],
-    "workspaces": [
-        "example"
-    ],
     "scripts": {
         "build": "bob build",
         "clean": "del-cli lib",
